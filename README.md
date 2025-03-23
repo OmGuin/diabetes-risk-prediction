@@ -39,3 +39,7 @@ This project heavily relies on  [Optuna](https://github.com/optuna/optuna) for h
 1. Run data.py
 2. Run model HP tuning
 3. Run model training
+4. Run eval.py
+5. Run feature importance
+
+Make deliverables.py
