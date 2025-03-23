@@ -1,7 +1,7 @@
 import optuna
 from sklearn.ensemble import RandomForestClassifier
 from data import X_train, X_test, y_train, y_test
-from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score
 import numpy as np
 
 def objective_rf(trial):
@@ -24,10 +24,10 @@ def objective_rf(trial):
 
     rf_model.fit(X_train, y_train)
 
+    
+    scores = cross_val_score(rf_model, X_test, y_test, cv=5, scoring='accuracy')
 
-    preds = rf_model.predict(X_test)
-    accuracy = accuracy_score(y_test, preds)
-    return accuracy
+    return np.mean(scores)
 
 
 study = optuna.create_study(direction="maximize")

@@ -1,6 +1,5 @@
 from xgboost import XGBClassifier
 from data import X_train, X_test, y_train, y_test
-from sklearn.metrics import accuracy_score
 from sklearn.model_selection import cross_val_score
 import optuna
 import numpy as np
@@ -28,7 +27,7 @@ def objective_xgb(trial):
 
     scores = cross_val_score(xgb_model, X_test, y_test, cv=5, scoring='accuracy')
 
-    return scores
+    return np.mean(scores)
 
 
 

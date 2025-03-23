@@ -1,7 +1,7 @@
 import optuna
 from sklearn.linear_model import LogisticRegression
 from data import X_train, X_test, y_train, y_test
-from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score
 import numpy as np
 
 
@@ -16,10 +16,9 @@ def objective_lgr(trial):
     lgr_model = LogisticRegression(**params, random_state=42, n_jobs=-1)
     lgr_model.fit(X_train, y_train)
 
-    preds = lgr_model.predict(X_test)
-    accuracy = accuracy_score(y_test, preds)
+    scores = cross_val_score(lgr_model, X_test, y_test, cv=5, scoring='accuracy')
 
-    return accuracy
+    return np.mean(scores)
 
 
 
