@@ -33,3 +33,9 @@ This project heavily relies on  [Optuna](https://github.com/optuna/optuna) for h
 - Subsample: 0.5 to 1.0
 - Colsample bytree: 0.5 to 1.0
 - L1 & L2: 1e-8 to 10.0 
+
+
+## Methodology
+1. Run data.py
+2. Run model HP tuning
+3. Run model training
