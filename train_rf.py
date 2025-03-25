@@ -16,5 +16,7 @@ best_rf_model.fit(X_train, y_train)
 final_preds = best_rf_model.predict(X_test)
 final_accuracy = accuracy_score(y_test, final_preds)
 print(f"Accuracy: {final_accuracy:.3f}")
+
+
 with open("rf_model.pkl", "wb") as file:
     pickle.dump(best_rf_model, file)
