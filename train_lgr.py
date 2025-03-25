@@ -15,6 +15,7 @@ best_lgr_model = LogisticRegression(**trial.params, random_state=42)
 best_lgr_model.fit(X_train, y_train)
 final_preds = best_lgr_model.predict(X_test)
 final_accuracy = accuracy_score(y_test, final_preds)
-print(final_accuracy)
+print(f"Accuracy: {final_accuracy:.3f}")
+
 with open("lgr_model.pkl", "wb") as file:
     pickle.dump(best_lgr_model, file)
