@@ -14,6 +14,8 @@ best_xgb_model = XGBClassifier(**trial.params, tree_method='gpu_hist', use_label
 best_xgb_model.fit(X_train, y_train)
 final_preds = best_xgb_model.predict(X_test)
 final_accuracy = accuracy_score(y_test, final_preds)
-print(final_accuracy)
+print(f"Accuracy: {final_accuracy:.3f}")
+
+
 with open("xgb_model.pkl", "wb") as file:
     pickle.dump(best_xgb_model, file)
