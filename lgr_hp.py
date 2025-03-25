@@ -1,9 +1,11 @@
 import optuna
 from sklearn.linear_model import LogisticRegression
-from data import X_train, X_test, y_train, y_test
+from data import get_data
 from sklearn.model_selection import cross_val_score
 import numpy as np
+import pickle
 
+X_train, X_test, y_train, y_test = get_data()
 
 def objective_lgr(trial):
     
@@ -27,6 +29,8 @@ study.optimize(objective_lgr, n_trials=100)
 
 trial = study.best_trial
 
+with open("lgr_trial.pkl", "wb") as file:
+    pickle.dump(trial, file)
 
 print(f"Accuracy: {trial.value}")
 print(f"Best hyperparameters: {trial.params}")

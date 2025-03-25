@@ -1,12 +1,15 @@
 import optuna
 from sklearn.ensemble import RandomForestClassifier
-from data import X_train, X_test, y_train, y_test
 from sklearn.model_selection import cross_val_score
 import pickle
 from sklearn.metrics import accuracy_score
-from rf_hp import trial
+from data import get_data
+import pickle
 
+X_train, X_test, y_train, y_test = get_data()
 
+with open("rf_trial.pkl","rb") as file:
+    trial = pickle.load(file)
 
 best_rf_model = RandomForestClassifier(**trial.params)
 best_rf_model.fit(X_train, y_train)

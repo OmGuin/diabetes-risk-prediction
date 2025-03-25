@@ -1,8 +1,11 @@
 import optuna
 from sklearn.ensemble import RandomForestClassifier
-from data import X_train, X_test, y_train, y_test
+from data import get_data
 from sklearn.model_selection import cross_val_score
 import numpy as np
+import pickle
+
+X_train, X_test, y_train, y_test = get_data()
 
 def objective_rf(trial):
 
@@ -34,6 +37,8 @@ study = optuna.create_study(direction="maximize")
 study.optimize(objective_rf, n_trials=100)
 
 trial = study.best_trial
+with open("rf_trial.pkl", "wb") as file:
+    pickle.dump(trial, file)
 
 
 print(f"Accuracy: {trial.value}")
