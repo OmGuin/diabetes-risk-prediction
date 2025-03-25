@@ -15,7 +15,7 @@ def evaluate_model(y_true, y_pred, model_name):
     plt.show()
     plt.savefig(model_name+'.png', dpi=300, bbox_inches='tight')
 
-def evaluate_all(X_test, y_test, model):
+def evaluate(X_test, y_test, model):
     if(model == "LGR"):
         with open("lgr_model.pkl", 'rb') as file:
             lgr_model = pickle.load(file)
