@@ -12,6 +12,10 @@ Using hyperparameter tuning, I intend to ensure the best possible deliverables
 This project heavily relies on  [Optuna](https://github.com/optuna/optuna) for hyperparameter tuning
 
 
+## Dataset
+https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset
+
+
 ## Hyperparameters for each model
 
 ### Logistic Regression
