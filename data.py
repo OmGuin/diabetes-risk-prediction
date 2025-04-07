@@ -4,12 +4,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
 def get_data():
-    data = pd.read_csv("")
+    data = pd.read_csv("diabetes_012_health_indicators_BRFSS2015.csv")
     imputer = SimpleImputer(strategy='median')
     data_imputed = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
 
-    X = data_imputed.drop("risk", axis=1)
-    y = data_imputed['risk']
+    X = data_imputed.drop("Diabetes_012", axis=1)
+    y = data_imputed['Diabetes_012']
 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
