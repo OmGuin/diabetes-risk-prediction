@@ -1,6 +1,6 @@
 # nexflow-blood
-Simple ensemble approach for robust diabetes risk association and inference
-I use 3 different models (logistic regression, random forest, gradient boosting) to find the best possible prediction for diabetes risk
+Simple ensemble approach for robust diabetes risk association and inference  
+I use 3 different models (logistic regression, random forest, gradient boosting) to find the best possible prediction for diabetes risk  
 Using hyperparameter tuning, I intend to ensure the best possible deliverables
 
 
