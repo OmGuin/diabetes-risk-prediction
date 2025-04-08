@@ -2,7 +2,7 @@ import seaborn as sns
 from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import pickle
-from data import get_data
+from hyperparameter_tuning.data import get_data
 
 X_train, X_test, y_train, y_test = get_data()
 

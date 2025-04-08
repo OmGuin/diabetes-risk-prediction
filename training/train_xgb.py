@@ -1,6 +1,5 @@
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
-import optuna
 from data import get_data
 import pickle
 
